@@ -7,7 +7,7 @@
 
   tasks:
   - name: Get the system info
-    paloaltonetworks.panos.panos_software::
+    paloaltonetworks.panos.panos_software:
       provider: '{{ provider }}'
       cmd: 'show system info'
     register: res
