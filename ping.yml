@@ -2,9 +2,6 @@
 - name: ping module demo
   hosts: all
   tasks:
-    - name: test connection
+    - name: Ping connection
       ansible.builtin.ping:
-
-    - name: Gather facts for first time
-      ansible.builtin.setup:
 ...
