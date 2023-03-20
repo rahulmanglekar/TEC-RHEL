@@ -1,15 +1,16 @@
-  ---
-  - name: Test palo alto
-    hosts: all
-    collections:
-      - paloaltonetworks.panos
+---
+- name: ping module demo
+  hosts: all
 
-    tasks:
-    - name: Get the system info
-      panos_op:
-        provider: '{{ provider }}'
-        cmd: 'show system info'
-      register: res
+  collections:
+    - paloaltonetworks.panos
 
-    - debug:
-        msg: '{{ res.stdout }}'
+  tasks:
+  - name: Get the system info
+    panos_op:
+      provider: '{{ provider }}'
+      cmd: 'show system info'
+    register: res
+
+  - debug:
+      msg: '{{ res.stdout }}'
