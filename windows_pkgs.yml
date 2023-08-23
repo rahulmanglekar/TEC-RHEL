@@ -1,6 +1,7 @@
 ---
 - name: List Installed Packages on Windows
   hosts: all
+  ignore_errors: true
   gather_facts: yes
 
   collections:
