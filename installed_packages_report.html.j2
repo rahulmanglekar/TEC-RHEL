@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Installed Packages Report</title>
+</head>
+<body>
+    <h1>Installed Packages on Windows</h1>
+    <table>
+        <tr>
+            <th>Package Name</th>
+            <th>Version</th>
+        </tr>
+        {% for package in installed_packages.ansible_facts.packages %}
+        <tr>
+            <td>{{ package.name }}</td>
+            <td>{{ package.version }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
