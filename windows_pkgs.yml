@@ -1,0 +1,13 @@
+---
+- name: List Installed Packages on Windows
+  hosts: all
+  gather_facts: yes
+  tasks:
+    - name: Gather installed package facts
+      win_package_facts:
+        gather_subset: 'installed'
+      register: installed_packages
+
+    - name: Display installed packages
+      debug:
+        var: installed_packages.ansible_facts.packages
