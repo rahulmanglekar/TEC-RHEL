@@ -1,6 +1,6 @@
 ---
 - name: Generate Windows Service Status Report
-  hosts: windows_hosts
+  hosts: all
   tasks:
     - name: Get Windows Service Status
       win_shell: Get-Service | Select-Object DisplayName,Status
