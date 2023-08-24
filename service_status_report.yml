@@ -9,6 +9,6 @@
     - name: Generate HTML Report
       template:
         src: service_status_template.j2
-        dest: /path/to/report.html
+        dest: /var/tmp/report.html
       vars:
         services: "{{ service_output.stdout_lines }}"
