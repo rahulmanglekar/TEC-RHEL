@@ -1,0 +1,14 @@
+---
+- name: Generate Windows Service Status Report
+  hosts: windows_hosts
+  tasks:
+    - name: Get Windows Service Status
+      win_shell: Get-Service | Select-Object DisplayName,Status
+      register: service_output
+
+    - name: Generate HTML Report
+      template:
+        src: service_status_template.j2
+        dest: /path/to/report.html
+      vars:
+        services: "{{ service_output.stdout_lines }}"
