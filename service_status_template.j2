@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Windows Service Status Report</title>
+</head>
+<body>
+  <h1>Windows Service Status Report</h1>
+  <table border="1">
+    <tr>
+      <th>Service Name</th>
+      <th>Status</th>
+    </tr>
+    {% for service in services %}
+    <tr>
+      <td>{{ service.split()[0] }}</td>
+      <td>{{ service.split()[1] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
