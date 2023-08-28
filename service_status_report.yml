@@ -1,6 +1,6 @@
 ---
 - name: Generate Windows Service Status Report
-  hosts: all
+  hosts: windows
   tasks:
     - name: Get Windows Service Status
       win_shell: Get-Service | Select-Object DisplayName,@{ n='Status'; e={ $_.Status.ToString() } } | ConvertTo-JSON
