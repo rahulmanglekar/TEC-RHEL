@@ -11,4 +11,4 @@
         src: service_status_template.j2
         dest: C:\Reports\report.html
       vars:
-        services: "{{ service_output.stdout | from_json }}"
+        services: "{{ service_output.stdout_lines | from_json }}"
