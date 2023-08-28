@@ -1,9 +1,9 @@
 ---
 - name: Generate Windows Service Status Report
-  hosts: all
+  hosts: windows
   tasks:
     - name: Get Windows Service Status
-      win_shell: Get-Service | Select-Object DisplayName,Status
+      win_shell: Get-Service | Select-Object DisplayName,@{ n='Status'; e={ $_.Status.ToString() } } | ConvertTo-JSON
       register: service_output
 
     - name: Generate HTML Report
@@ -11,4 +11,5 @@
         src: service_status_template.j2
         dest: C:\Reports\report.html
       vars:
-        services: "{{ service_output.stdout_lines }}"
+        services: "{{ service_output.stdout | from_json }}"
+      ignore_errors: true
