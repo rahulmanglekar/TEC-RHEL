@@ -12,7 +12,7 @@
     </tr>
     {% for service in services %}
     <tr>
-      <td>{{ service }}</td>
+      <td>{{ service.DisplayName  }}</td><td>{{ service.Status  }}</td>
     </tr>
     {% endfor %}
   </table>
