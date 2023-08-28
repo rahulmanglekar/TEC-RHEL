@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Get Windows Service Status
-      win_shell: Get-Service | Select-Object DisplayName,Status
+      win_shell: Get-Service | Select-Object DisplayName,@{ n='Status'; e={ $_.Status.ToString() } } | ConvertTo-JSON
       register: service_output
 
     - name: Generate HTML Report
